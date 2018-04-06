@@ -419,6 +419,62 @@ void MainWindow::on_pushButton_clicked()
             }
     }
 
+
+    /*2. _x*/
+    result = 0;
+    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
+    {
+        arg1 = ui->tableWidget->item(i, 0)->text();
+        arg2 = ui->tableWidget->item(i, 2)->text();
+        result = result + arg1.toDouble()*arg2.toDouble();
+    }
+    newItem = new QTableWidgetItem(tr(qPrintable(QString::number(result))));
+    ui->tableWidget_2->setItem(0, 1, newItem);
+
+    /*3. |Eη - _x|*/
+    result = 0;
+    arg1 = ui->tableWidget_2->item(0, 0)->text();
+    arg2 = ui->tableWidget_2->item(0, 1)->text();
+    result = arg1.toDouble() - arg2.toDouble();
+    result = fabs(result);
+    newItem = new QTableWidgetItem(tr(qPrintable(QString::number(result))));
+    ui->tableWidget_2->setItem(0, 2, newItem);
+
+    /*4. Dη*/
+    result = 0;
+    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
+    {
+        arg1 = ui->tableWidget->item(i, 0)->text();
+        arg2 = ui->tableWidget->item(i, 2)->text();
+        result = result + pow(arg1.toDouble(),2) * arg2.toDouble();
+    }
+    result = result - pow(ui->tableWidget_2->item(0, 0)->text().toDouble(),2);
+    newItem = new QTableWidgetItem(tr(qPrintable(QString::number(result))));
+    ui->tableWidget_2->setItem(0, 3, newItem);
+
+    /*5. S^2*/
+    result = 0;
+    for (int i = 0; i < ui->tableWidget_3->rowCount(); i++)
+    {
+        arg1 = ui->tableWidget_3->item(i, 0)->text();
+        result = result + pow(arg1.toDouble() - ui->tableWidget_2->item(0, 1)->text().toDouble(), 2);
+    }
+    result = result / int_M;
+    newItem = new QTableWidgetItem(tr(qPrintable(QString::number(result))));
+    ui->tableWidget_2->setItem(0, 4, newItem);
+
+    /*6. |Dη - S^2|*/
+    result = 0;
+    arg1 = ui->tableWidget_2->item(0, 3)->text();
+    arg2 = ui->tableWidget_2->item(0, 4)->text();
+    result = arg1.toDouble() - arg2.toDouble();
+    result = fabs(result);
+    newItem = new QTableWidgetItem(tr(qPrintable(QString::number(result))));
+    ui->tableWidget_2->setItem(0, 5, newItem);
+
+
+
+
     ui->widget->clearGraphs();//Если нужно, то очищаем все графики
 
     ui->widget->addGraph();//добавляем график

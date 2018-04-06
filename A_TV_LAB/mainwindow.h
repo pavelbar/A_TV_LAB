@@ -26,16 +26,19 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     struct ZVENO1
     {
      double left = 0;
      double right = 0;
     };
+
     TList<ZVENO1> intervalList;
     TList<double> verojatnosThList;
+    TList<double> rndValList;
+
     double *verojatnosExpMas;
     int sizeMasVerojatnosExp = 0;
-    TList<double> rndValList;
 
     explicit MainWindow(QWidget *parent = 0);
 
