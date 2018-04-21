@@ -1,21 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QMainWindow>
 #include <QMessageBox>
-#include <QTableWidget>
-#include <QPixmap>
-#include <QTime>
-#include <QGraphicsScene>
 
 #include <tlist.h>
 #include "ui_mainwindow.h"
-
-/*
-1. Как получить одинаковую выборку для отладки программы
-2. Плостность равномерного распределия.
-*/
 
 namespace Ui {
 class MainWindow;
@@ -29,16 +18,14 @@ public:
 
     struct ZVENO1
     {
-     double left = 0;
-     double right = 0;
+        double left = 0;
+        double right = 0;
     };
 
     TList<ZVENO1> intervalList;
-    TList<double> verojatnosThList;
     TList<double> rndValList;
-
-    double *verojatnosExpMas;
-    int sizeMasVerojatnosExp = 0;
+    TList<double> verojatnosThList;
+    TList<double> verojatnosExpList;
 
     explicit MainWindow(QWidget *parent = 0);
 
@@ -65,57 +52,57 @@ private slots:
     {
         switch(col)
         {
-          case 0:
+        case 0:
             QMessageBox::warning(this, tr("Пояснение"),tr("Математическое ожидание E дискретной случайной величины η вычисляется как сумма произведений значений yi , которые принимает СВ η, на соответствующие вероятности ni:"));
             break;
 
-          case 1:
+        case 1:
             QMessageBox::warning(this, tr("Пояснение"),tr("Выборочное среднее значение это сумма всех разыгранных значений деленная на количество этих значений. "));
             break;
 
-         // case 2:
-        //    QMessageBox::warning(this, tr("Пояснение"),tr("2"));
-         //   break;
+            // case 2:
+            //    QMessageBox::warning(this, tr("Пояснение"),tr("2"));
+            //   break;
 
         case 3:
         {
-          QMessageBox help3;
-          QPixmap myPixmap("://help3.PNG");
-          help3.setIconPixmap(myPixmap);
-          help3.setText(tr("Дисперсия - это мера разброса значений случайной величины η относительно ее математического ожидания  Eη. Не мб отрицательна. D(X)=M(X−M(X))^2"));
-          help3.show();
-          help3.exec();
-          break;
+            QMessageBox help3;
+            QPixmap myPixmap("://help3.PNG");
+            help3.setIconPixmap(myPixmap);
+            help3.setText(tr("Дисперсия - это мера разброса значений случайной величины η относительно ее математического ожидания  Eη. Не мб отрицательна. D(X)=M(X−M(X))^2"));
+            help3.show();
+            help3.exec();
+            break;
         }
 
         case 4:
         {
-          QMessageBox help4;
-          QPixmap myPixmap(":/help4.PNG");
-          help4.setIconPixmap(myPixmap);
-          help4.setText(tr(" "));
-          help4.show();
-          help4.exec();
-          break;
+            QMessageBox help4;
+            QPixmap myPixmap(":/help4.PNG");
+            help4.setIconPixmap(myPixmap);
+            help4.setText(tr(" "));
+            help4.show();
+            help4.exec();
+            break;
         }
 
-       // case 5:
-         // QMessageBox::warning(this, tr("Пояснение"),tr("5"));
-         // break;
+            // case 5:
+            // QMessageBox::warning(this, tr("Пояснение"),tr("5"));
+            // break;
 
         case 6:
         {
-          QMessageBox help6;
-          QPixmap myPixmap(":/help6.PNG");
-          help6.setIconPixmap(myPixmap);
-          help6.setText(tr(" "));
-          help6.show();
-          help6.exec();
-          break;
+            QMessageBox help6;
+            QPixmap myPixmap(":/help6.PNG");
+            help6.setIconPixmap(myPixmap);
+            help6.setText(tr(" "));
+            help6.show();
+            help6.exec();
+            break;
         }
         case 7:
-          QMessageBox::warning(this, tr("Пояснение"),tr("Размах выборки - разница между макс и мин значением в выборке"));
-          break;
+            QMessageBox::warning(this, tr("Пояснение"),tr("Размах выборки - разница между макс и мин значением в выборке"));
+            break;
 
 
 
@@ -127,12 +114,9 @@ private:
     QString str_M;
     QString str_N;
     QString str_P;
-    int int_M;
-    int int_N;
-    double double_P;
-
-    int calcX(int X);
-    int calcY(int Y);
+    int int_insert_M;
+    int int_insert_N;
+    double double_insert_P;
 
     double MyRand(double fMin, double fMax)
     {

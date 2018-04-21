@@ -40,7 +40,7 @@
      <item>
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Количество сообщений N = </string>
+        <string>Количество сообщений M = </string>
        </property>
       </widget>
      </item>
@@ -211,7 +211,7 @@
      <item>
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>Количество экспириментов M = </string>
+        <string>Количество экспириментов N = </string>
        </property>
       </widget>
      </item>
@@ -369,6 +369,58 @@
       <width>331</width>
       <height>221</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>710</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>nan</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>710</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Мера расхождения D =  </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>200</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>∑ серединных чисел =</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>200</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>nan</string>
     </property>
    </widget>
   </widget>
